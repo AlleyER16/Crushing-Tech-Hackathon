@@ -32,9 +32,7 @@ function app() {
         console.log(guide.scrollHeight);
 
         guide.style.maxHeight =
-          guide.scrollHeight +
-          parseInt(getComputedStyle(guide).paddingTop) +
-          parseInt(getComputedStyle(guide).paddingBottom);
+          guide.scrollHeight + parseInt(getComputedStyle(guide).paddingBottom);
         +"px";
       }
 

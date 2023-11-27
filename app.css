@@ -762,7 +762,7 @@ body {
   max-height: 4rem;
   overflow: hidden;
 
-  transition: max-height 200ms;
+  transition: max-height 400ms;
 
   display: flex;
   gap: 9.6rem;
