@@ -25,23 +25,11 @@ function app() {
   // open step
   const openStep = (step) => {
     guides.forEach((guide, guideIndex) => {
-      const guideBody = guide.querySelector(".guide__body");
-
       // open passed step
-      if (guideIndex === step) {
-        guide.classList.add("guide--active");
-        guideBody.style.maxHeight = guideBody.scrollHeight + "px";
-
-        return;
-      }
+      if (guideIndex === step) guide.classList.add("guide--active");
 
       // close other steps
-      if (guideIndex !== step) {
-        guide.classList.remove("guide--active");
-        guideBody.style.maxHeight = null;
-
-        return;
-      }
+      if (guideIndex !== step) guide.classList.remove("guide--active");
     });
   };
 
