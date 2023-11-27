@@ -758,7 +758,11 @@ body {
 .guide {
   padding: 0.8rem;
   border-radius: 1rem;
+
+  height: 4rem;
   overflow: hidden;
+
+  transition: height 200ms;
 
   display: flex;
   gap: 9.6rem;
@@ -777,6 +781,10 @@ body {
 
 .guide__main {
   flex: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
 }
 
 .guide__header {
@@ -791,7 +799,6 @@ body {
 
 .guide--active .guide__header {
   background-color: #f3f3f3;
-  margin-bottom: 1.6rem;
 }
 
 .guide__check {
@@ -923,15 +930,15 @@ body {
 .guide__body {
   padding-left: 2.8rem;
 
+  opacity: 0;
+
   display: flex;
   flex-direction: column;
   gap: 1.6rem;
-
-  display: none;
 }
 
 .guide--active .guide__body {
-  display: flex;
+  opacity: 1;
 }
 
 .guide__content {

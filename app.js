@@ -26,10 +26,20 @@ function app() {
   const openStep = (step) => {
     guides.forEach((guide, guideIndex) => {
       // open passed step
-      if (guideIndex === step) guide.classList.add("guide--active");
+      if (guideIndex === step) {
+        guide.classList.add("guide--active");
+
+        console.log(guide.scrollHeight);
+
+        guide.style.height = guide.scrollHeight + "px";
+      }
 
       // close other steps
-      if (guideIndex !== step) guide.classList.remove("guide--active");
+      if (guideIndex !== step) {
+        guide.classList.remove("guide--active");
+
+        guide.style.height = "40px";
+      }
     });
   };
 
