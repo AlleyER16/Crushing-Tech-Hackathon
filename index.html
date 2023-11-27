@@ -16,17 +16,19 @@
       <a
         href="https://www.shopify.com"
         class="header__logo-wrapper"
-        aria-label="Navigate to shopify.com"
+        aria-label="Shopify logo click to navigate to shopify.com"
       >
         <img
           src="https://crushingit.tech/hackathon-assets/shopify-icon-desktop.svg"
           alt="Shopify Logo Desktop"
           class="logo logo--desktop"
+          aria-hidden="true"
         />
         <img
           src="https://crushingit.tech/hackathon-assets/shopify-icon.svg"
           alt="Shopify Logo Image"
           class="logo logo--mobile"
+          aria-hidden="true"
         />
       </a>
 
@@ -67,6 +69,7 @@
               class="notifications__toggle-icon"
               viewBox="0 0 21 20"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 fill-rule="evenodd"
@@ -77,9 +80,8 @@
           </button>
 
           <div
-            class="notifications__block"
+            class="notifications__block hidden"
             id="notifications-block"
-            tabindex="-1"
             role="dialog"
             aria-label="Notifications"
           >
@@ -95,6 +97,7 @@
                   class="notifications__action-icon"
                   viewBox="0 0 20 20"
                   fill="none"
+                  aria-hidden="true"
                 >
                   <path
                     d="M3 6C3 5.58579 3.33579 5.25 3.75 5.25H16.25C16.6642 5.25 17 5.58579 17 6C17 6.41421 16.6642 6.75 16.25 6.75H3.75C3.33579 6.75 3 6.41421 3 6Z"
@@ -116,6 +119,7 @@
                   class="notifications__action-icon"
                   viewBox="0 0 20 20"
                   fill="none"
+                  aria-hidden="true"
                 >
                   <path
                     d="M13.2803 9.03033C13.5732 8.73744 13.5732 8.26256 13.2803 7.96967C12.9874 7.67678 12.5126 7.67678 12.2197 7.96967L9.25 10.9393L8.03033 9.71967C7.73744 9.42678 7.26256 9.42678 6.96967 9.71967C6.67678 10.0126 6.67678 10.4874 6.96967 10.7803L8.71967 12.5303C9.01256 12.8232 9.48744 12.8232 9.78033 12.5303L13.2803 9.03033Z"
@@ -148,7 +152,7 @@
           </button>
 
           <ul
-            class="user-menu__menu"
+            class="user-menu__menu hidden"
             id="user-profile-menu"
             role="menu"
             aria-label="Your Profile Menu"
@@ -185,6 +189,7 @@
                   viewBox="0 0 21 20"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path
                     fill-rule="evenodd"
@@ -296,6 +301,7 @@
             viewBox="0 0 21 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
           >
             <path
               d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
@@ -331,6 +337,7 @@
               viewBox="0 0 21 20"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
             >
               <path
                 fill-rule="evenodd"
@@ -356,17 +363,19 @@
           <div class="guide guide--active" data-step="1">
             <div class="guide__main">
               <div class="guide__header">
+                <span class="guide__status" aria-live="polite"></span>
                 <button
                   class="guide__check"
                   role="checkbox"
                   aria-checked="false"
-                  aria-label="Toggle complete customize your online store step"
+                  aria-label="Mark customize your online store as done"
                 >
                   <svg
-                    class="guide__check-img-1"
+                    class="guide__not-completed-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <circle
                       cx="16"
@@ -382,7 +391,8 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 28 28"
                     fill="none"
-                    class="guide__check-img-2"
+                    class="guide__loading-icon"
+                    aria-hidden="true"
                   >
                     <path
                       d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
@@ -392,10 +402,11 @@
                     />
                   </svg>
                   <svg
-                    class="guide__check-img-3"
+                    class="guide__completed-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <path
@@ -429,17 +440,19 @@
           <div class="guide" data-step="2">
             <div class="guide__main">
               <div class="guide__header">
+                <span class="guide__status" aria-live="polite"></span>
                 <button
                   class="guide__check"
                   role="checkbox"
                   aria-checked="false"
-                  aria-label="Toggle complete add your first product"
+                  aria-label="Mark add your first product as done"
                 >
                   <svg
-                    class="guide__check-img-1"
+                    class="guide__not-completed-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <circle
                       cx="16"
@@ -455,7 +468,8 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 28 28"
                     fill="none"
-                    class="guide__check-img-2"
+                    class="guide__loading-icon"
+                    aria-hidden="true"
                   >
                     <path
                       d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
@@ -465,10 +479,11 @@
                     />
                   </svg>
                   <svg
-                    class="guide__check-img-3"
+                    class="guide__completed-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <path
@@ -504,17 +519,19 @@
           <div class="guide" data-step="3">
             <div class="guide__main">
               <div class="guide__header">
+                <span class="guide__status" aria-live="polite"></span>
                 <button
                   class="guide__check"
                   role="checkbox"
                   aria-checked="false"
-                  aria-label="Toggle complete add a custom domain"
+                  aria-label="Mark add a custom domain as done"
                 >
                   <svg
-                    class="guide__check-img-1"
+                    class="guide__not-completed-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <circle
                       cx="16"
@@ -530,7 +547,8 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 28 28"
                     fill="none"
-                    class="guide__check-img-2"
+                    class="guide__loading-icon"
+                    aria-hidden="true"
                   >
                     <path
                       d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
@@ -540,10 +558,11 @@
                     />
                   </svg>
                   <svg
-                    class="guide__check-img-3"
+                    class="guide__completed-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <path
@@ -578,17 +597,19 @@
           <div class="guide" data-step="4">
             <div class="guide__main">
               <div class="guide__header">
+                <span class="guide__status" aria-live="polite"></span>
                 <button
                   class="guide__check"
                   role="checkbox"
                   aria-checked="false"
-                  aria-label="Toggle complete name your store"
+                  aria-label="Mark name your store as done"
                 >
                   <svg
-                    class="guide__check-img-1"
+                    class="guide__not-completed-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <circle
                       cx="16"
@@ -604,7 +625,8 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 28 28"
                     fill="none"
-                    class="guide__check-img-2"
+                    class="guide__loading-icon"
+                    aria-hidden="true"
                   >
                     <path
                       d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
@@ -614,10 +636,11 @@
                     />
                   </svg>
                   <svg
-                    class="guide__check-img-3"
+                    class="guide__completed-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <path
@@ -650,17 +673,19 @@
           <div class="guide" data-step="5">
             <div class="guide__main">
               <div class="guide__header">
+                <span class="guide__status" aria-live="polite"></span>
                 <button
                   class="guide__check"
                   role="checkbox"
                   aria-checked="false"
-                  aria-label="Toggle complete setup a payment provider"
+                  aria-label="Mark setup a payment provider as done"
                 >
                   <svg
-                    class="guide__check-img-1"
+                    class="guide__not-completed-icon"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 32 32"
                     fill="none"
+                    aria-hidden="true"
                   >
                     <circle
                       cx="16"
@@ -676,7 +701,8 @@
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 28 28"
                     fill="none"
-                    class="guide__check-img-2"
+                    class="guide__loading-icon"
+                    aria-hidden="true"
                   >
                     <path
                       d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
@@ -686,10 +712,11 @@
                     />
                   </svg>
                   <svg
-                    class="guide__check-img-3"
+                    class="guide__completed-icon"
                     viewBox="0 0 24 24"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
                   >
                     <circle cx="12" cy="12" r="10"></circle>
                     <path

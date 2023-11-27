@@ -25,11 +25,23 @@ function app() {
   // open step
   const openStep = (step) => {
     guides.forEach((guide, guideIndex) => {
+      const guideBody = guide.querySelector(".guide__body");
+
       // open passed step
-      if (guideIndex === step) guide.classList.add("guide--active");
+      if (guideIndex === step) {
+        guide.classList.add("guide--active");
+        guideBody.style.maxHeight = guideBody.scrollHeight + "px";
+
+        return;
+      }
 
       // close other steps
-      if (guideIndex !== step) guide.classList.remove("guide--active");
+      if (guideIndex !== step) {
+        guide.classList.remove("guide--active");
+        guideBody.style.maxHeight = null;
+
+        return;
+      }
     });
   };
 
@@ -103,11 +115,11 @@ function app() {
         return;
       }
 
-      if (!uncompletedBefore && stepIndex < step - 1) {
+      if (uncompletedBefore === undefined && stepIndex < step - 1) {
         uncompletedBefore = stepIndex;
       }
 
-      if (!uncompletedAfter && stepIndex > step - 1) {
+      if (uncompletedAfter === undefined && stepIndex > step - 1) {
         uncompletedAfter = stepIndex;
       }
     });
@@ -117,8 +129,14 @@ function app() {
     progressEl.style.width = `${filledPercentage}%`;
     progressCountEl.innerHTML = filledCount;
 
-    if (typeof uncompletedAfter !== "undefined") return uncompletedAfter;
-    if (typeof uncompletedBefore !== "undefined") return uncompletedBefore;
+    if (uncompletedAfter !== undefined) return uncompletedAfter;
+    if (uncompletedBefore !== undefined) return uncompletedBefore;
+  };
+
+  const finishUpStepCheck = function (step) {
+    const stepToOpen = updateStepsProgress(step);
+
+    if (stepToOpen !== undefined) openStep(stepToOpen);
   };
 
   // step complete toggle checkbox event handler
@@ -126,21 +144,53 @@ function app() {
   // 2. Opens the next uncompleted step
   const stepCheckboxHandler = function () {
     const guide = this.closest(".guide");
+    const checkboxButtonStatus = guide.querySelector(".guide__status");
 
     const isChecked = this.attributes["aria-checked"].value === "true";
 
+    const currentStep = +guide.dataset.step;
+
     if (isChecked) {
-      this.ariaChecked = "false";
-      this.classList.remove("checked");
+      this.classList.remove("completed");
+      this.classList.add("loading");
+
+      checkboxButtonStatus.ariaLabel = "Loading. Please wait...";
+
+      setTimeout(() => {
+        this.ariaChecked = "false";
+
+        checkboxButtonStatus.ariaLabel =
+          "Successfully " + this.ariaLabel.toLowerCase();
+
+        this.ariaLabel = this.ariaLabel.replace("as done", "as not done");
+
+        stepsCompleted[currentStep - 1] = false;
+
+        this.classList.remove("loading");
+
+        finishUpStepCheck(currentStep);
+      }, 2000);
     } else {
-      this.ariaChecked = "true";
-      this.classList.add("checked");
+      this.classList.add("loading");
+
+      checkboxButtonStatus.ariaLabel = "Loading. Please wait...";
+
+      setTimeout(() => {
+        this.ariaChecked = "true";
+
+        checkboxButtonStatus.ariaLabel =
+          "Successfully " + this.ariaLabel.toLowerCase();
+
+        this.ariaLabel = this.ariaLabel.replace("as not done", "as done");
+
+        stepsCompleted[currentStep - 1] = true;
+
+        this.classList.remove("loading");
+        this.classList.add("completed");
+
+        finishUpStepCheck(currentStep);
+      }, 2000);
     }
-
-    stepsCompleted[+guide.dataset.step - 1] = isChecked ? false : true;
-
-    const stepToOpen = updateStepsProgress(guide.dataset.step);
-    if (stepToOpen) openStep(stepToOpen);
   };
 
   // Event listener to step checkbox
@@ -167,7 +217,7 @@ function app() {
 
   // close notifications block
   const closeNotificationsBlock = (focus = true) => {
-    notificationsBlock.classList.remove("notifications__block--open");
+    notificationsBlock.classList.add("hidden");
 
     notificationsToggle.ariaExpanded = "false";
 
@@ -181,7 +231,7 @@ function app() {
 
   // open notifications block
   const openNotificationsBlock = () => {
-    notificationsBlock.classList.add("notifications__block--open");
+    notificationsBlock.classList.remove("hidden");
 
     notificationsToggle.ariaExpanded = "true";
 
@@ -226,7 +276,7 @@ function app() {
 
   // close user menu
   const closeUserMenu = (focus = true) => {
-    userMenuBlock.classList.remove("user-menu__menu--open");
+    userMenuBlock.classList.add("hidden");
 
     userMenuToggle.ariaExpanded = "false";
 
@@ -267,7 +317,7 @@ function app() {
 
   // open user menu
   const openUserMenu = () => {
-    userMenuBlock.classList.add("user-menu__menu--open");
+    userMenuBlock.classList.remove("hidden");
 
     userMenuToggle.ariaExpanded = "true";
 
