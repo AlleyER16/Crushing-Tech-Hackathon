@@ -759,10 +759,10 @@ body {
   padding: 0.8rem;
   border-radius: 1rem;
 
-  height: 4rem;
+  max-height: 4rem;
   overflow: hidden;
 
-  transition: height 200ms;
+  transition: max-height 200ms;
 
   display: flex;
   gap: 9.6rem;

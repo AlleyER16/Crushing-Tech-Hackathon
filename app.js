@@ -31,14 +31,18 @@ function app() {
 
         console.log(guide.scrollHeight);
 
-        guide.style.height = guide.scrollHeight + "px";
+        guide.style.maxHeight =
+          guide.scrollHeight +
+          parseInt(getComputedStyle(guide).paddingTop) +
+          parseInt(getComputedStyle(guide).paddingBottom);
+        +"px";
       }
 
       // close other steps
       if (guideIndex !== step) {
         guide.classList.remove("guide--active");
 
-        guide.style.height = "40px";
+        guide.style.maxHeight = "40px";
       }
     });
   };
