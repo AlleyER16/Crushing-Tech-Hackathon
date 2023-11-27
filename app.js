@@ -47,6 +47,9 @@ function app() {
     });
   };
 
+  // open step 1 on load
+  openStep(0);
+
   // open setup steps
   const openSetupGuide = function () {
     // add open css class
