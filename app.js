@@ -23,7 +23,7 @@ function app() {
   const guides = document.querySelectorAll(".guide");
 
   // open step
-  const openStep = (step) => {
+  function openStep(step) {
     guides.forEach((guide, guideIndex) => {
       // open passed step
       if (guideIndex === step) {
@@ -41,13 +41,13 @@ function app() {
         guide.style.maxHeight = "40px";
       }
     });
-  };
+  }
 
-  // open step 1 on load
+  // open first step on load
   openStep(0);
 
   // open setup steps
-  const openSetupGuide = function () {
+  function openSetupGuide() {
     // add open css class
     setupGuide.classList.add("open");
 
@@ -57,10 +57,10 @@ function app() {
 
     // change aria-expanded to true
     setupGuideToggle.ariaExpanded = "true";
-  };
+  }
 
   // close setup steps
-  const closeSetupGuide = function () {
+  function closeSetupGuide() {
     // remove open cs class
     setupGuide.classList.remove("open");
 
@@ -70,11 +70,11 @@ function app() {
 
     // change aria-expanded to false
     setupGuideToggle.ariaExpanded = "false";
-  };
+  }
 
   // toggle setup guide
   // open guide if closed and close guide if opened
-  const toggleSetupGuide = function () {
+  function toggleSetupGuide() {
     const isOpened =
       setupGuideToggle.attributes["aria-expanded"].value === "true";
 
@@ -83,7 +83,7 @@ function app() {
     } else {
       openSetupGuide();
     }
-  };
+  }
 
   // adding toggle event listener
   setupGuideToggle.addEventListener("click", toggleSetupGuide);
@@ -100,7 +100,7 @@ function app() {
   const stepsCompleted = [false, false, false, false, false];
 
   // update completed step count and update progress bar
-  const updateStepsProgress = (step) => {
+  function updateStepsProgress(step) {
     let filledCount = 0;
 
     let uncompletedBefore;
@@ -132,18 +132,18 @@ function app() {
 
     if (uncompletedAfter !== undefined) return uncompletedAfter;
     if (uncompletedBefore !== undefined) return uncompletedBefore;
-  };
+  }
 
-  const finishUpStepCheck = function (step) {
+  function finishUpStepCheck(step) {
     const stepToOpen = updateStepsProgress(step);
 
     if (stepToOpen !== undefined) openStep(stepToOpen);
-  };
+  }
 
   // step complete toggle checkbox event handler
   // 1. check if unchecked and uncheck if checked
   // 2. Opens the next uncompleted step
-  const stepCheckboxHandler = function () {
+  function stepCheckboxHandler() {
     const guide = this.closest(".guide");
     const checkboxButtonStatus = guide.querySelector(".guide__status");
 
@@ -192,7 +192,7 @@ function app() {
         finishUpStepCheck(currentStep);
       }, 2000);
     }
-  };
+  }
 
   // Event listener to step checkbox
   stepCheckboxes.forEach((stepCheckbox) => {
@@ -217,13 +217,13 @@ function app() {
   const filterNotifications = document.querySelector("#filter-notifications");
 
   // close notifications block
-  const closeNotificationsBlock = (focus = true) => {
+  function closeNotificationsBlock(focus = true) {
     notificationsBlock.classList.add("hidden");
 
     notificationsToggle.ariaExpanded = "false";
 
     if (focus) notificationsToggle.focus();
-  };
+  }
 
   // handle escape event
   function handleNotificationsBlockEscape(event) {
@@ -231,7 +231,7 @@ function app() {
   }
 
   // open notifications block
-  const openNotificationsBlock = () => {
+  function openNotificationsBlock() {
     notificationsBlock.classList.remove("hidden");
 
     notificationsToggle.ariaExpanded = "true";
@@ -242,10 +242,10 @@ function app() {
       "keyup",
       handleNotificationsBlockEscape
     );
-  };
+  }
 
   // toggle notifications block
-  const toggleNotificationsBlock = function () {
+  function toggleNotificationsBlock() {
     const isOpened =
       notificationsToggle.attributes["aria-expanded"].value === "true";
 
@@ -254,7 +254,7 @@ function app() {
     } else {
       openNotificationsBlock();
     }
-  };
+  }
 
   // add listener for notifications toggle
   notificationsToggle.addEventListener("click", toggleNotificationsBlock);
@@ -276,13 +276,13 @@ function app() {
   const userMenuItems = userMenuBlock.querySelectorAll("[role='menuitem']");
 
   // close user menu
-  const closeUserMenu = (focus = true) => {
+  function closeUserMenu(focus = true) {
     userMenuBlock.classList.add("hidden");
 
     userMenuToggle.ariaExpanded = "false";
 
     if (focus) userMenuToggle.focus();
-  };
+  }
 
   // handle escape event
   function handleUserMenuEscape(event) {
@@ -317,7 +317,7 @@ function app() {
   }
 
   // open user menu
-  const openUserMenu = () => {
+  function openUserMenu() {
     userMenuBlock.classList.remove("hidden");
 
     userMenuToggle.ariaExpanded = "true";
@@ -331,10 +331,10 @@ function app() {
         handleMenuNavigateEvent(event, menuItemIndex);
       });
     });
-  };
+  }
 
   // toggle user menu
-  const toggleUserMenu = function () {
+  function toggleUserMenu() {
     const isOpened =
       userMenuToggle.attributes["aria-expanded"].value === "true";
 
@@ -343,7 +343,7 @@ function app() {
     } else {
       openUserMenu();
     }
-  };
+  }
 
   // add user menu toggle event listener
   userMenuToggle.addEventListener("click", toggleUserMenu);
