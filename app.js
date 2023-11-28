@@ -29,8 +29,6 @@ function app() {
       if (guideIndex === step) {
         guide.classList.add("guide--active");
 
-        console.log(guide.scrollHeight);
-
         guide.style.maxHeight =
           guide.scrollHeight + parseInt(getComputedStyle(guide).paddingBottom);
         +"px";
