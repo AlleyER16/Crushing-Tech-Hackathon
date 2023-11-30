@@ -50,6 +50,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 999;
 
   height: 5.6rem;
   padding: 1.2rem 1.6rem;
@@ -226,7 +227,7 @@ body {
   position: fixed;
   top: 6.4rem;
   right: 1.6rem;
-  z-index: 99;
+  z-index: 999;
 
   width: 40rem;
   max-width: calc(100vw - 3.2rem);
@@ -368,7 +369,7 @@ body {
   position: fixed;
   top: 6.4rem;
   right: 1.6rem;
-  z-index: 99;
+  z-index: 999;
 
   list-style: none;
   background-color: #fff;
@@ -389,6 +390,7 @@ body {
 
 .user-menu__menu-item {
   padding: 0 0.6rem;
+  background-color: #fff;
 }
 
 .user-menu__divider {
@@ -799,7 +801,6 @@ body {
 .guide__header {
   background-color: #fff;
   position: relative;
-  z-index: 9;
 
   display: flex;
   align-items: center;
